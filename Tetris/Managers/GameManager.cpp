@@ -1,5 +1,7 @@
 #include "GameManager.h"
 
+GameManager* GameManager::instance = nullptr;
+
 GameManager::GameManager() :
 	m_hDC(0),
 	m_hwnd(0),
@@ -31,4 +33,9 @@ void GameManager::ChangeWindowSize(Vector2 _resolution)
 		false
 	);
 	SetWindowPos(m_hwnd, nullptr, 100, 100, rt.right - rt.left, rt.bottom - rt.top, 0);
+}
+
+void GameManager::Update()
+{
+
 }

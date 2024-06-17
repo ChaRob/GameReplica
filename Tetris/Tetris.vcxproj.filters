@@ -13,8 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\1. Managers">
+    <Filter Include="소스 파일\01. Managers">
       <UniqueIdentifier>{15bafd68-b35e-4a78-a797-e6143f1a1328}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01. Managers\GameManager">
+      <UniqueIdentifier>{6e65f77c-7c3d-42a4-a424-66e5e39a1fdf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,14 +33,14 @@
     <ClInclude Include="main.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Managers\GameManager.h">
-      <Filter>소스 파일\1. Managers</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Vector2.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers\GameManager.h">
+      <Filter>소스 파일\01. Managers\GameManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -45,7 +48,7 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Managers\GameManager.cpp">
-      <Filter>소스 파일\1. Managers</Filter>
+      <Filter>소스 파일\01. Managers\GameManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

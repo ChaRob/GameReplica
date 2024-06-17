@@ -1,4 +1,5 @@
 ﻿#include "main.h"
+#include "./Managers/GameManager.h"
 
 #define MAX_LOADSTRING 100
 
@@ -34,7 +35,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     // Manager를 초기화 합니다.
-    if (GameManager::GetInstance()->InitManager(hWnd, POINT{ 1280, 768 }) == FALSE) {
+    if (FAILED(GameManager::GetInstance()->InitManager(hWnd, POINT{ 1280, 768 }))) {
         MessageBox(nullptr, L"Game Init Error!", L"ERROR", MB_OK);
         return FALSE;
     }
@@ -47,6 +48,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // 기본 메시지 루프입니다:
     while (true)
     {
+        // 메세지 큐에 처리할 메세지가 남아있다면 메세지를 처리합니다.
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
             if (msg.message == WM_QUIT) break;
 
@@ -56,8 +58,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                 DispatchMessage(&msg);
             }
         }
+        // 메세지를 처리하지 않는 대부분의 시간은 이곳에서 보냅니다.
         else {
-
+            GameManager::GetInstance()->Update();
         }
     }
 

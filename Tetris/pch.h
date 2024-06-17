@@ -7,8 +7,6 @@
 #include "resource.h"
 #include "framework.h"
 
-#include "./Managers/GameManager.h"	
-
 #include "Vector2.h"
 
 #endif // !__PCH__

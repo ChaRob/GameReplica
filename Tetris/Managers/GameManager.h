@@ -27,6 +27,9 @@ public:
 	// 메인 윈도우 핸들과 윈도우 해상도, 전체 Manager를 초기화 합니다.
 	int InitManager(HWND _hwnd, POINT _ptResolution);
 	void ChangeWindowSize(Vector2 _vec);
+	
+	// 각 Manager가 루프를 돌 동안 실행할 코드를 이곳에 정리합니다.
+	void Update();
 };
 
 #endif // !__DEF_GAME_MANAGER__
