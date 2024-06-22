@@ -1,5 +1,7 @@
 #include "KeyManager.h"
 
+KeyManager KeyManager::instance;
+
 KeyManager::KeyManager() {}
 KeyManager::~KeyManager() {}
 

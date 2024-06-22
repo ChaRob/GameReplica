@@ -22,6 +22,9 @@
     <Filter Include="소스 파일\01. Managers\KeyManager">
       <UniqueIdentifier>{8a0b6bed-0c27-463a-abad-6a3d1dfb0119}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01. Managers\TimeManager">
+      <UniqueIdentifier>{2e0f8955-19f7-4cf4-95fa-fb49e8d7f512}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -48,6 +51,9 @@
     <ClInclude Include="Managers\KeyManager.h">
       <Filter>소스 파일\01. Managers\KeyManager</Filter>
     </ClInclude>
+    <ClInclude Include="Managers\TimeManager.h">
+      <Filter>소스 파일\01. Managers\TimeManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -58,6 +64,9 @@
     </ClCompile>
     <ClCompile Include="Managers\KeyManager.cpp">
       <Filter>소스 파일\01. Managers\KeyManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\TimeManager.cpp">
+      <Filter>소스 파일\01. Managers\TimeManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
