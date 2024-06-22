@@ -8,9 +8,9 @@
 // 현재 키의 상태를 알려주는 enum
 enum class KEY_STATE {
 	KEY_NONE,			// 아무 상태도 아님
-	KEY_PUSH,			// 막 누른 상태
+	KEY_DOWN,			// 막 누른 상태
 	KEY_HOLD,			// 누르고 있는 상태
-	KEY_UP,				// 눌렀다가 뗸 상태
+	KEY_UP,				// 눌렀다가 뗀 상태
 };
 
 enum class KEYTYPE {
@@ -59,6 +59,7 @@ private:
 public:
 	void InitManager();
 	void Update();
+	KEY_STATE GetKeyState(const int& _keyIndex) const { return m_vecKeyState[_keyIndex].nState; }
 };
 
-#endif
+#endif // !__DEF_KEY_MANAGER__
