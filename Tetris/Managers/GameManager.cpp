@@ -1,4 +1,5 @@
 #include "GameManager.h"
+#include "KeyManager.h"
 
 GameManager GameManager::instance;
 
@@ -24,6 +25,7 @@ int GameManager::InitManager(HWND _hwnd, POINT _ptResolution)
 	ChangeWindowSize(m_ptResolution);
 
 	// Manager들의 초기화 함수를 이곳에 작성합니다.
+	KeyManager::GetInstance()->InitManager();
 
 	return S_OK;
 }
@@ -41,5 +43,5 @@ void GameManager::ChangeWindowSize(Vector2 _resolution)
 void GameManager::Update()
 {
 	// Manager들의 Update문을 이곳에 작성합니다.
-
+	KeyManager::GetInstance()->Update();
 }
