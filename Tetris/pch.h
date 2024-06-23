@@ -5,6 +5,7 @@
 
 #include <Windows.h>
 #include <vector>
+#include <string>
 
 #include "resource.h"
 #include "framework.h"
