@@ -3,7 +3,6 @@
 #ifndef __PCH__
 #define __PCH__
 
-#include <Windows.h>
 #include <vector>
 #include <string>
 
@@ -11,5 +10,19 @@
 #include "framework.h"
 
 #include "Vector2.h"
+
+enum class BRUSH_TYPE
+{
+	HOLLOW,
+	END
+};
+
+enum class PEN_TYPE
+{
+	RED,
+	GREEN,
+	BLUE,
+	END
+};
 
 #endif // !__PCH__

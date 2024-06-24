@@ -11,13 +11,21 @@ GameManager GameManager::instance;
 GameManager::GameManager() :
 	m_hDC(0),
 	m_hwnd(0),
-	m_ptResolution(POINT())
+	m_ptResolution(POINT()),
+	m_arrBrush{},
+	m_arrPen{}
 {}
 
 GameManager::~GameManager()
 {
 	// Window API를 이용하여 메인 윈도우 핸들과 메인 윈도우 DC의 메모리를 해제합니다.
 	ReleaseDC(m_hwnd, m_hDC);
+
+	// CreatePen으로 만들어둔 Pen들을 모두 제거합니다.
+	for (UINT i = 0; i < (UINT)PEN_TYPE::END; i++)
+	{
+		DeleteObject(m_arrPen[i]);
+	}
 }
 
 int GameManager::InitManager(HWND _hwnd, POINT _ptResolution)
@@ -28,6 +36,9 @@ int GameManager::InitManager(HWND _hwnd, POINT _ptResolution)
 	// 해상도에 맞도록 윈도우 크기를 조절합니다.
 	m_ptResolution = _ptResolution;
 	ChangeWindowSize(m_ptResolution);
+
+	// 사용할 브러쉬와 펜을 등록합니다.
+	CreateBrushPen();
 
 	// Manager들의 초기화 함수를 이곳에 작성합니다.
 	KeyManager::GetInstance()->InitManager();
@@ -44,6 +55,17 @@ void GameManager::ChangeWindowSize(Vector2 _resolution)
 		false
 	);
 	SetWindowPos(m_hwnd, nullptr, 100, 100, rt.right - rt.left, rt.bottom - rt.top, 0);
+}
+
+void GameManager::CreateBrushPen()
+{
+	// Brush
+	m_arrBrush[(UINT)BRUSH_TYPE::HOLLOW] = (HBRUSH)GetStockObject(HOLLOW_BRUSH);
+
+	// Pen
+	m_arrPen[(UINT)PEN_TYPE::RED] = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+	m_arrPen[(UINT)PEN_TYPE::GREEN] = CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
+	m_arrPen[(UINT)PEN_TYPE::BLUE] = CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
 }
 
 void GameManager::Update()
