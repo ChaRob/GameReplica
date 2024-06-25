@@ -61,6 +61,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         // 메세지를 처리하지 않는 대부분의 시간은 이곳에서 보냅니다.
         else {
             GameManager::GetInstance()->Update();
+            GameManager::GetInstance()->Render();
+            GameManager::GetInstance()->LateUpdate();
         }
     }
 

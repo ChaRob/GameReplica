@@ -25,6 +25,11 @@ private:
 	HPEN m_arrPen[(UINT)PEN_TYPE::END];
 	void CreateBrushPen();
 
+	// 화면에 비트맵 정보를 넣을 변수를 정의합니다.
+	// 이후에 텍스쳐 기반의 형식으로 바뀔 예정입니다.
+	HBITMAP m_hBit;			// 비트맵 정보
+	HDC m_memDC;			// 기억하고 있을 DC값
+
 public:
 	// 메인 윈도우 핸들과 윈도우 해상도, 전체 Manager를 초기화 합니다.
 	int InitManager(HWND _hwnd, POINT _ptResolution);
@@ -32,6 +37,8 @@ public:
 	
 	// 각 Manager가 루프를 돌 동안 실행할 코드를 이곳에 정리합니다.
 	void Update();
+	void Render();		// 화면을 그릴 함수 처리
+	void LateUpdate();	// 이벤트 처리 등 가장 마지막에 업데이트 해야 할 정보들
 
 	// 외부에서 필요한 속성값을 전달하는 함수를 여기에 모아뒀습니다.
 	HWND GetMainHwnd() const { return m_hwnd; }

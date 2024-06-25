@@ -13,7 +13,9 @@ GameManager::GameManager() :
 	m_hwnd(0),
 	m_ptResolution(POINT()),
 	m_arrBrush{},
-	m_arrPen{}
+	m_arrPen{},
+	m_hBit(0),
+	m_memDC(0)
 {}
 
 GameManager::~GameManager()
@@ -39,6 +41,18 @@ int GameManager::InitManager(HWND _hwnd, POINT _ptResolution)
 
 	// 사용할 브러쉬와 펜을 등록합니다.
 	CreateBrushPen();
+
+	// Device Context 초기화 및 호출
+	// 메세지 기반이 아닌, 원할때 그림을 그려 넣을 수 있도록 합니다.
+	m_hDC = GetDC(m_hwnd);
+
+	// 기존 DC와 호환성있게 동작하도록 하는 함수로 비트맵 정보를 정의합니다.
+	m_hBit = CreateCompatibleBitmap(m_hDC, m_ptResolution.x, m_ptResolution.y);
+	m_memDC = CreateCompatibleDC(m_hDC);
+
+	// m_memDC가 기존에 가리키고 있던 bitmap은 사용하지 않으므로 제거합니다.
+	HBITMAP hOldBitmap = (HBITMAP)SelectObject(m_memDC, m_hBit);
+	DeleteObject(hOldBitmap);
 
 	// Manager들의 초기화 함수를 이곳에 작성합니다.
 	KeyManager::GetInstance()->InitManager();
@@ -73,4 +87,23 @@ void GameManager::Update()
 	// Manager들의 Update문을 이곳에 작성합니다.
 	KeyManager::GetInstance()->Update();
 	TimeManager::GetInstance()->Update();
+}
+
+void GameManager::Render()
+{
+	// 그림 그리기 전 전체 화면 청소
+	// Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y);
+
+	// 임시 테스트용 그림
+	// SelectObject(m_memDC, m_arrBrush[(UINT)BRUSH_TYPE::HOLLOW]);
+	// SelectObject(m_memDC, m_arrPen[(UINT)PEN_TYPE::RED]);
+	Rectangle(m_hDC, 100, 100, 100, 100);
+
+	// m_memDC에 그린 그림을 복사해서 m_hDC로 옮겨줍니다.
+	// 이 작업을 CPU가 담당하고 있지만, 후에 DirectX를 통해 GPU가 작업하게 되면 속도를 더 끌어올릴 수 있습니다.
+	// BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
+}
+
+void GameManager::LateUpdate()
+{
 }
