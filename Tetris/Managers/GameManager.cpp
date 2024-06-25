@@ -22,6 +22,8 @@ GameManager::~GameManager()
 {
 	// Window API를 이용하여 메인 윈도우 핸들과 메인 윈도우 DC의 메모리를 해제합니다.
 	ReleaseDC(m_hwnd, m_hDC);
+	DeleteDC(m_memDC);
+	DeleteObject(m_hBit);
 
 	// CreatePen으로 만들어둔 Pen들을 모두 제거합니다.
 	for (UINT i = 0; i < (UINT)PEN_TYPE::END; i++)
@@ -92,16 +94,16 @@ void GameManager::Update()
 void GameManager::Render()
 {
 	// 그림 그리기 전 전체 화면 청소
-	// Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y);
+	Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y);
 
 	// 임시 테스트용 그림
 	// SelectObject(m_memDC, m_arrBrush[(UINT)BRUSH_TYPE::HOLLOW]);
 	// SelectObject(m_memDC, m_arrPen[(UINT)PEN_TYPE::RED]);
-	Rectangle(m_hDC, 100, 100, 100, 100);
+	Rectangle(m_memDC, 10, 10, 110, 110);
 
 	// m_memDC에 그린 그림을 복사해서 m_hDC로 옮겨줍니다.
 	// 이 작업을 CPU가 담당하고 있지만, 후에 DirectX를 통해 GPU가 작업하게 되면 속도를 더 끌어올릴 수 있습니다.
-	// BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
+	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
 }
 
 void GameManager::LateUpdate()
