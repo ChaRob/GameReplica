@@ -15,3 +15,7 @@ void Scene::Update()
 void Scene::LateUpdate()
 {
 }
+
+void Scene::Render()
+{
+}

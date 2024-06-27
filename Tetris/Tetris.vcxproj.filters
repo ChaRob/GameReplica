@@ -31,6 +31,9 @@
     <Filter Include="소스 파일\03. Scene">
       <UniqueIdentifier>{156c96ae-082e-4576-8cc6-7af5db44fd70}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01. Managers\SceneManager">
+      <UniqueIdentifier>{3ca54c23-fadf-4dcb-9005-d279d7175ef0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -66,6 +69,9 @@
     <ClInclude Include="Scene\Scene.h">
       <Filter>소스 파일\03. Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Managers\SceneManager.h">
+      <Filter>소스 파일\01. Managers\SceneManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -85,6 +91,9 @@
     </ClCompile>
     <ClCompile Include="Scene\Scene.cpp">
       <Filter>소스 파일\03. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Managers\SceneManager.cpp">
+      <Filter>소스 파일\01. Managers\SceneManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

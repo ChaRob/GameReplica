@@ -32,4 +32,11 @@ enum class GROUP_TYPE
 	END
 };
 
+enum class SCENE_TYPE
+{
+	MAIN_MENU,
+	STAGE,
+	END
+};
+
 #endif // !__PCH__
