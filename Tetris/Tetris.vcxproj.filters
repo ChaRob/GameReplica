@@ -28,6 +28,9 @@
     <Filter Include="소스 파일\02. Object">
       <UniqueIdentifier>{de0e8fd6-170c-4b37-8493-0b66dc111d4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. Scene">
+      <UniqueIdentifier>{156c96ae-082e-4576-8cc6-7af5db44fd70}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -60,6 +63,9 @@
     <ClInclude Include="Object\Object.h">
       <Filter>소스 파일\02. Object</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\Scene.h">
+      <Filter>소스 파일\03. Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -76,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="Object\Object.cpp">
       <Filter>소스 파일\02. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Scene.cpp">
+      <Filter>소스 파일\03. Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

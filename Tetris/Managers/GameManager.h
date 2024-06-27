@@ -37,8 +37,10 @@ public:
 	
 	// 각 Manager가 루프를 돌 동안 실행할 코드를 이곳에 정리합니다.
 	void Update();
-	void Render();		// 화면을 그릴 함수 처리
-	void LateUpdate();	// 이벤트 처리 등 가장 마지막에 업데이트 해야 할 정보들
+	// 화면을 그릴 함수 처리를 이곳에 정리합니다.
+	void Render();
+	// 이벤트 처리 등 가장 마지막에 업데이트 해야 할 정보들을 이곳에 정리합니다.
+	void LateUpdate();
 
 	// 외부에서 필요한 속성값을 전달하는 함수를 여기에 모아뒀습니다.
 	HWND GetMainHwnd() const { return m_hwnd; }

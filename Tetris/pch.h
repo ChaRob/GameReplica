@@ -25,4 +25,11 @@ enum class PEN_TYPE
 	END
 };
 
+enum class GROUP_TYPE
+{
+	PLAYER,
+	MONSTER,
+	END
+};
+
 #endif // !__PCH__
