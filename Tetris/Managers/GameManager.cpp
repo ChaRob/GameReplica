@@ -1,6 +1,7 @@
 #include "GameManager.h"
 #include "KeyManager.h"
 #include "TimeManager.h"
+#include "SceneManager.h"
 
 // instance를 참조할 수 있도록 선언해주기.
 // C++표준에서는 일반 정적멤버 변수를 클래스 내부에서 초기화하는 것을 허용하지 않는다.
@@ -59,6 +60,7 @@ int GameManager::InitManager(HWND _hwnd, POINT _ptResolution)
 	// Manager들의 초기화 함수를 이곳에 작성합니다.
 	KeyManager::GetInstance()->InitManager();
 	TimeManager::GetInstance()->InitManager();
+	SceneManager::GetInstance()->InitManager();
 
 	return S_OK;
 }
@@ -88,6 +90,7 @@ void GameManager::Update()
 {
 	// Manager들의 Update문을 이곳에 작성합니다.
 	KeyManager::GetInstance()->Update();
+	SceneManager::GetInstance()->Update();
 	TimeManager::GetInstance()->Update();
 }
 
@@ -101,6 +104,9 @@ void GameManager::Render()
 	// SelectObject(m_memDC, m_arrPen[(UINT)PEN_TYPE::RED]);
 	Rectangle(m_memDC, 10, 10, 110, 110);
 
+	// 이곳에서 Manager들이 관리하는 Render함수를 호출합니다.
+	SceneManager::GetInstance()->Render();
+
 	// m_memDC에 그린 그림을 복사해서 m_hDC로 옮겨줍니다.
 	// 이 작업을 CPU가 담당하고 있지만, 후에 DirectX를 통해 GPU가 작업하게 되면 속도를 더 끌어올릴 수 있습니다.
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
@@ -108,4 +114,6 @@ void GameManager::Render()
 
 void GameManager::LateUpdate()
 {
+	// 이곳에서 Manager들의 LateUpdate문을 작성합니다.
+	SceneManager::GetInstance()->LateUpdate();
 }

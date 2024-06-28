@@ -24,4 +24,6 @@ public:
 	// 이떄 순수가상함수로 만들어서 반드시 상속받은 Scene들이 해당 함수를 구현하도록 합니다.
 	virtual void Enter() = 0;
 	virtual void Exit() = 0;
+
+	
 };

@@ -22,6 +22,8 @@ private:
 	Scene* m_arrScene[(UINT)SCENE_TYPE::END];	// 모든 Scene의 목록을 저장하는 배열변수
 
 public:
+	void InitManager();
+
 	// 각 Scene에 해당하는 함수들을 이곳에 정리합니다.
 	void Update();
 	void Render();

@@ -136,6 +136,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene\Scene.h" />
+    <ClInclude Include="Scene\SceneIntro\SceneIntro.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Vector2.h" />
@@ -148,6 +149,7 @@
     <ClCompile Include="Managers\TimeManager.cpp" />
     <ClCompile Include="Object\Object.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
+    <ClCompile Include="Scene\SceneIntro\SceneIntro.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Tetris.rc" />

@@ -34,6 +34,7 @@ enum class GROUP_TYPE
 
 enum class SCENE_TYPE
 {
+	INTRO,
 	MAIN_MENU,
 	STAGE,
 	END
