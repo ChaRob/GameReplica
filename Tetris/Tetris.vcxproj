@@ -135,6 +135,7 @@
     <ClInclude Include="Object\Object.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Resource\Resource.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\SceneIntro\SceneIntro.h" />
     <ClInclude Include="targetver.h" />
@@ -148,6 +149,7 @@
     <ClCompile Include="Managers\SceneManager.cpp" />
     <ClCompile Include="Managers\TimeManager.cpp" />
     <ClCompile Include="Object\Object.cpp" />
+    <ClCompile Include="Resource\Resource.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Scene\SceneIntro\SceneIntro.cpp" />
   </ItemGroup>

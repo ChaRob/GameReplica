@@ -8,7 +8,7 @@ class Scene
 {
 public:
 	Scene();
-	~Scene();
+	virtual ~Scene(); // 자식 소멸자가 호출될 수 있도록 가상함수로 구현
 
 private:
 	// Scene에서 관리할 모든 object vector를 선언합니다.

@@ -37,6 +37,9 @@
     <Filter Include="소스 파일\03. Scene\SceneIntro">
       <UniqueIdentifier>{fca909b4-0afb-4612-a80b-66586231cd5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\04. Resource">
+      <UniqueIdentifier>{6ed53d51-97b6-4c5b-ab7a-216e13838e7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -78,6 +81,9 @@
     <ClInclude Include="Scene\SceneIntro\SceneIntro.h">
       <Filter>소스 파일\03. Scene\SceneIntro</Filter>
     </ClInclude>
+    <ClInclude Include="Resource\Resource.h">
+      <Filter>소스 파일\04. Resource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -103,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="Scene\SceneIntro\SceneIntro.cpp">
       <Filter>소스 파일\03. Scene\SceneIntro</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource\Resource.cpp">
+      <Filter>소스 파일\04. Resource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
