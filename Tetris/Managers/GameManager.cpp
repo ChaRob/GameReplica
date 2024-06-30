@@ -57,6 +57,22 @@ int GameManager::InitManager(HWND _hwnd, POINT _ptResolution)
 	HBITMAP hOldBitmap = (HBITMAP)SelectObject(m_memDC, m_hBit);
 	DeleteObject(hOldBitmap);
 
+	// 현재 프로그램이 실행된 경로를 받아옵니다.
+	GetCurrentDirectory(500, m_resourcePath);
+
+	// Release나 Debug가 실행되는 경로 밖의 폴더를 지정하기 위한 로직을 실행합니다.
+	size_t pathLen = wcslen(m_resourcePath);
+	for (int i = pathLen - 1; i >= 0; i--)
+	{
+		// 경로에서 '\\'을 만나면 null 문자를 넣어 해당 경로까지의 절대 경로를 얻습니다.
+		if (m_resourcePath[i] == '\\') {
+			m_resourcePath[i] = '\0';
+			break;
+		}
+	}
+	// resource가 들어있는 경로를 지정합니다.
+	wcscat_s(m_resourcePath, 500, L"\\resource\\");
+
 	// Manager들의 초기화 함수를 이곳에 작성합니다.
 	KeyManager::GetInstance()->InitManager();
 	TimeManager::GetInstance()->InitManager();
@@ -116,4 +132,14 @@ void GameManager::LateUpdate()
 {
 	// 이곳에서 Manager들의 LateUpdate문을 작성합니다.
 	SceneManager::GetInstance()->LateUpdate();
+}
+
+wstring GameManager::GetRelativePath(const wchar_t* _filePath)
+{
+	// wstring으로 변환한 후, m_resourcePath의 값을 제거하고 반환합니다.
+	wstring strFilePath = _filePath;
+
+	size_t lastPos = strFilePath.find(m_resourcePath);
+
+	return strFilePath.substr(lastPos + wcslen(m_resourcePath));
 }

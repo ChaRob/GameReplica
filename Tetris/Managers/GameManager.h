@@ -5,6 +5,8 @@
 
 #include "../pch.h"
 
+using namespace std;
+
 class GameManager
 {
 private:
@@ -30,6 +32,10 @@ private:
 	HBITMAP m_hBit;			// 비트맵 정보
 	HDC m_memDC;			// 기억하고 있을 DC값
 
+	// 모든 Resource가 저장되는 절대경로와 상대경로를 정의합니다.
+	wchar_t m_resourcePath[500];
+	wchar_t m_relativePath[500];
+
 public:
 	// 메인 윈도우 핸들과 윈도우 해상도, 전체 Manager를 초기화 합니다.
 	int InitManager(HWND _hwnd, POINT _ptResolution);
@@ -45,6 +51,11 @@ public:
 	// 외부에서 필요한 속성값을 전달하는 함수를 여기에 모아뒀습니다.
 	HWND GetMainHwnd() const { return m_hwnd; }
 	HDC GetMainhDC() const { return m_hDC; }
+
+	// Resource들이 저장되어 있는 절대경로를 반환합니다.
+	const wchar_t* GetResourcePath() const { return m_resourcePath; }
+	// Resource들이 저장되어 있는 상대경로를 반환합니다.
+	wstring GetRelativePath(const wchar_t* _filePath);
 };
 
 #endif // !__DEF_GAME_MANAGER__
