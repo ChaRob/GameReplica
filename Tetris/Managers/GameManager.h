@@ -4,6 +4,7 @@
 #define __DEF_GAME_MANAGER__
 
 #include "../pch.h"
+#include "../Resource/Texture/Texture.h"
 
 using namespace std;
 
@@ -29,8 +30,9 @@ private:
 
 	// 화면에 비트맵 정보를 넣을 변수를 정의합니다.
 	// 이후에 텍스쳐 기반의 형식으로 바뀔 예정입니다.
-	HBITMAP m_hBit;			// 비트맵 정보
-	HDC m_memDC;			// 기억하고 있을 DC값
+	HBITMAP m_hBit;				// 비트맵 정보
+	HDC m_memDC;				// 기억하고 있을 DC값
+	Texture* m_pBufferTexture;	// 백버퍼 텍스쳐
 
 	// 모든 Resource가 저장되는 절대경로와 상대경로를 정의합니다.
 	wchar_t m_resourcePath[500];

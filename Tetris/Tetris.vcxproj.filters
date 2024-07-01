@@ -40,6 +40,9 @@
     <Filter Include="소스 파일\04. Resource">
       <UniqueIdentifier>{6ed53d51-97b6-4c5b-ab7a-216e13838e7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\04. Resource\Texture">
+      <UniqueIdentifier>{2346a89a-3f34-446f-bbbb-d3543ce74637}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -84,6 +87,9 @@
     <ClInclude Include="Resource\Resource.h">
       <Filter>소스 파일\04. Resource</Filter>
     </ClInclude>
+    <ClInclude Include="Resource\Texture\Texture.h">
+      <Filter>소스 파일\04. Resource\Texture</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -112,6 +118,9 @@
     </ClCompile>
     <ClCompile Include="Resource\Resource.cpp">
       <Filter>소스 파일\04. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource\Texture\Texture.cpp">
+      <Filter>소스 파일\04. Resource\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

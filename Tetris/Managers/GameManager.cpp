@@ -16,7 +16,10 @@ GameManager::GameManager() :
 	m_arrBrush{},
 	m_arrPen{},
 	m_hBit(0),
-	m_memDC(0)
+	m_memDC(0),
+	m_relativePath(),
+	m_resourcePath(),
+	m_pBufferTexture(0)
 {}
 
 GameManager::~GameManager()
@@ -48,6 +51,9 @@ int GameManager::InitManager(HWND _hwnd, POINT _ptResolution)
 	// Device Context 초기화 및 호출
 	// 메세지 기반이 아닌, 원할때 그림을 그려 넣을 수 있도록 합니다.
 	m_hDC = GetDC(m_hwnd);
+
+	// 백버퍼 용도의 비트맵과 DC를 생성합니다.
+	
 
 	// 기존 DC와 호환성있게 동작하도록 하는 함수로 비트맵 정보를 정의합니다.
 	m_hBit = CreateCompatibleBitmap(m_hDC, m_ptResolution.x, m_ptResolution.y);
